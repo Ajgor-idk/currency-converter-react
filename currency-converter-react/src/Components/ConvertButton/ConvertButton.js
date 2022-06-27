@@ -1,17 +1,7 @@
-import { querySelect } from "../../Utils/querySelect/querySelect";
-
-
-export const ConvertButton = () => {
-  const amount = querySelect("#amount");
-  const currencyList = querySelect("#currencies");
-  const convert = () => {
-    const value = amount.value;
-    const multiplier = currencyList.value;
-  };
-
+export const ConvertButton = ({ computeOutcome }) => {
   return (
-    <button onClick={convert} id="convert" title="Click to convert.">
-      Convert
+    <button onClick={computeOutcome} id="convert" title="Click to convert.">
+      Click me!
     </button>
   );
 };

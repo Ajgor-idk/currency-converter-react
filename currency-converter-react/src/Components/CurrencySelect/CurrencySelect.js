@@ -1,37 +1,35 @@
 import { useEffect, useState } from "react";
-import { createElem } from "../../Utils/createElem/createElem";
-import { querySelect } from "../../Utils/querySelect/querySelect";
+import { v4 as uuid4 } from "uuid";
 
-export const CurrencySelect = () => {
+export const CurrencySelect = ({ setCurrencySelection, currencySelection }) => {
   const url = "http://api.nbp.pl/api/exchangerates/tables/c/last/";
-  const currencyList = querySelect("#currencies");
-  const [rates, setRates] = useState([])
+  const [rates, setRates] = useState([]);
 
   useEffect(() => {
     fetch(url)
       .then((repsonse) => repsonse.json())
       .then((data) => {
         console.log(data);
-        setRates(data[0].rates)
-        // data[0]?.rates.forEach(({ code, bid }) => {
-        //   const option = createElem("option");
-        //   option.innerText = code;
-        //   option.setAttribute("value", bid);
-        //   currencyList.appendChild(option);
-        // });
+        setRates(data[0].rates);
       })
       .catch((err) => console.error(err));
-  },[])
-  console.log(rates);
+  }, []);
+
   return (
     <select
       name="currencies"
       id="currencies"
       title="Select the currency you want to convert."
+      onChange={(event) => setCurrencySelection(event.target.value)}
+      value={currencySelection}
     >
-      <option>Hello</option>
-      {rates.forEach(({code, bid}) => {
-        return(<option value={bid}>{code}</option>)
+      <option value={null}></option>
+      {rates.map(({ code, bid }) => {
+        return (
+          <option key={uuid4()} value={bid}>
+            {code}
+          </option>
+        );
       })}
     </select>
   );
