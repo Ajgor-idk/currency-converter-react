@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { v4 as uuid4 } from "uuid";
 
 export const CurrencySelect = ({ setCurrencySelection, currencySelection }) => {
-  const url = "http://api.nbp.pl/api/exchangerates/tables/c/last/";
+  const url = "https://api.nbp.pl/api/exchangerates/tables/c/last/";
   const [rates, setRates] = useState([]);
 
   useEffect(() => {
