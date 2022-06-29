@@ -1,4 +1,4 @@
-import NBPLogo from "D://VS-projects/currency-converter-react/src/Components/Header/logo-nbp-w4.png"
+import NBPLogo from "./logo-nbp-w4.png"
 
 export const Header = () => {
   return (
