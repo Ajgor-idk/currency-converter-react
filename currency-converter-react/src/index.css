@@ -23,21 +23,24 @@ main {
   justify-content: center;
 }
 
+#amount,
+#currencies,
+#convert {
+  border: 2px black solid;
+}
+
 #amount {
   background-color: antiquewhite;
   height: 20px;
   width: 140px;
-  border: 2px black solid;
 }
 
 #currencies {
   height: 26px;
-  border: 2px black solid;
 }
 
 #convert {
   height: 26px;
-  border: 2px black solid;
 }
 
 #outcome {

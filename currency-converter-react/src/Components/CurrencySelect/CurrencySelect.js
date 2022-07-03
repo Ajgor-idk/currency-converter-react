@@ -9,7 +9,6 @@ export const CurrencySelect = ({ setCurrencySelection, currencySelection }) => {
     fetch(url)
       .then((repsonse) => repsonse.json())
       .then((data) => {
-        console.log(data);
         setRates(data[0].rates);
       })
       .catch((err) => console.error(err));
